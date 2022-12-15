@@ -91,6 +91,7 @@ stack_t	*pop(stack_t **stack)
 int popp(stack_t **stack, unsigned int line_number)
 {
 	stack_t *h = pop(stack);
+
 	if (h == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);

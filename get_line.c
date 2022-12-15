@@ -46,9 +46,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	int i;
 	static ssize_t input;
 	ssize_t retval;
-	char *buffer;
-	char t = 'z';
-	
+	char *buffer, t = 'z';
 
 	if (input == 0)
 		fflush(stream);
@@ -74,8 +72,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		}
 		if (input >= BUFSIZE)
 			buffer = realloc(buffer, input + 1);
-		buffer[input] = t;
-		input++;
+		buffer[input++] = t;
 	}
 	if (isalnum(buffer[input - 1]))
 		buffer[input] = '\0';

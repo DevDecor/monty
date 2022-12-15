@@ -1,6 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define LINE_SIZE 250
+#define BUFSIZE 1024
+#define TOK_BUFSIZE 128
+#define TOK_DELIM " \t\r\n\a"
+#if !defined(_WITH_GETLINE)
+ #define _WITH_GETLINE
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,4 +62,6 @@ int popp(stack_t **stack, unsigned int line_number);
 int pint(stack_t **stack, unsigned int line_number);
 void free_instructions(instruction_t **hands);
 void push_h(stack_t **stack, instruction_t **, char *, unsigned int);
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 #endif

@@ -47,7 +47,7 @@ void decide(FILE *file, stack_t **stack, instruction_t **hands)
 	unsigned int line = 0, i, found = 0;
 	char *s = NULL, *opcode = NULL, *arg = NULL;
 
-	while ((len = getline(&s, &size, file)) != (size_t)(-1))
+	while ((len = get_line(&s, &size, file)) != (size_t)(-1))
 	{
 		line++;
 		if (s[len - 1] == '\n')
